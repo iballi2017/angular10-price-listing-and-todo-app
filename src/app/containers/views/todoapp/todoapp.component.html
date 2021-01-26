@@ -1,0 +1,59 @@
+<div class="container pt-5">
+    <h2 class="text-center my-4">Todo Listing</h2>
+    <form class="example-form mb-1">
+        <mat-form-field class="example-full-width">
+            <mat-label>Add what todo</mat-label>
+            <input matInput placeholder="Enter Todo" type="text" id="todo" name="todo" #todo>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Add Date</mat-label>
+            <input matInput placeholder="Enter date" type="date" id="date" name="date" #date>
+        </mat-form-field>
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field> -->
+
+        <mat-form-field class="example-full-width">
+            <mat-label>Add Time</mat-label>
+            <input matInput placeholder="Enter Time" type="time" id="time" name="time" #time>
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="handleAddToList()">Add To List</button>
+    </form>
+
+    <div class="alert-info mt-5" *ngIf="!todoList.length">
+        <p>No Item List Available<br/>Add your Items and corresponding prices</p>
+    </div>
+    <!-- table -->
+    <div class="mt-5" *ngIf="todoList.length">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Todo</th>
+                    <th scope="col">Date</th>
+                    <th scope="col" colspan="2">time</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr [ngClass]="{done: item.isDone}" *ngFor="let item of todoList">
+                    <th scope="row">{{item.todo}}</th>
+                    <td>{{item.date}}</td>
+                    <td>{{item.time}}</td>
+                    <td><button class="mr-2" (click)="handleRemove(item.id)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
+                        <mat-icon>delete</mat-icon>
+                      </button>
+                        <button mat-flat-button color="default" (click)="handleIsDone(item.id)" *ngIf="item.isDone === false">Done</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4">
+                        <button mat-flat-button color="warn" (click)="handleClearAll()">Clear All</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

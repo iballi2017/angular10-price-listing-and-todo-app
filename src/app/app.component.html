@@ -1,2 +1,24 @@
-<navigation></navigation>
-<layout></layout>
+<!-- <navigation></navigation> -->
+<mat-toolbar>
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon" (click)="drawer.toggle()">
+    <mat-icon>menu</mat-icon>
+    </button>
+    <span>Price Listing</span>
+    <span class="example-spacer"></span>
+</mat-toolbar>
+
+<mat-drawer-container class="example-container" [hasBackdrop]="true">
+    <mat-drawer #drawer [mode]="over">
+        <mat-list role="list">
+            <mat-list-item role="listitem" class="nav-item">
+                <a routerLink="/home" routerLinkActive="active" class="nav-link">Home</a>
+            </mat-list-item>
+            <mat-list-item role="listitem" class="nav-item">
+                <a routerLink="/todoapp" routerLinkActive="active" class="nav-link">Todo App</a>
+            </mat-list-item>
+        </mat-list>
+    </mat-drawer>
+    <mat-drawer-content>
+        <layout></layout>
+    </mat-drawer-content>
+</mat-drawer-container>

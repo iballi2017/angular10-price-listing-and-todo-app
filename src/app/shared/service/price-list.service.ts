@@ -17,14 +17,12 @@ export class PriceListService {
   addToList(item){
     return this.dataSource.unshift(item);
   }
-
   
   handleRemove(e){
     let y = this.dataSource.filter((item:any) => item.id != e);
     this.dataSource = y
     return this.dataSource;
   }
-
 
   handleTotalAmount(){
     this.totalAmount = 0;

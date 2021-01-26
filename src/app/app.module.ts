@@ -9,13 +9,17 @@ import { HomeComponent } from './containers/views/home/home.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 import { MaterialModule } from  './material/material.module';
 import { FormsModule } from '@angular/forms';
+import { TodoappComponent } from './containers/views/todoapp/todoapp.component';
+import { PageNotFoundComponent } from './containers/views/page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent,
     HomeComponent,
-    NavigationComponent
+    NavigationComponent,
+    TodoappComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
