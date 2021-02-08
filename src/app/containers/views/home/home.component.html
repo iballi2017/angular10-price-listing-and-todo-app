@@ -42,8 +42,15 @@
 
         <div class="mt-2">
             <p>
-                <strong>Total:</strong>&nbsp;<span class="d-2">{{totalAmount}}</span>
+                <span *ngIf="dollar">
+                    <strong>Total:</strong>&nbsp;<span class="d-2">{{totalAmount * 399 | currency}}</span>
+                </span>
+                <span *ngIf="!dollar">
+                    <strong>Total:</strong>&nbsp;<span class="d-2">{{totalAmount | currency: '₦'}}</span>
+                </span>
             </p>
+            <button mat-flat-button color="basic" class="btn-sm" (click)="handleDollar()" *ngIf="dollar">naira</button>
+            <button mat-flat-button color="basic" class="btn-sm" (click)="handleDollar()" *ngIf="!dollar">dollar</button>
         </div>
     </div>
 </div>

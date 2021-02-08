@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   @ViewChild('item') item:ElementRef;
   @ViewChild('price') price:ElementRef;
 
+  dollar = false;
 
   constructor(private priceListSvc: PriceListService) { }
 
@@ -23,6 +24,10 @@ export class HomeComponent implements OnInit {
     this.totalAmount = this.priceListSvc.handleTotalAmount();
     console.log( this.totalAmount);
     this.dataSource = this.priceListSvc.getItems();
+  }
+
+  handleDollar(){
+    this.dollar = !this.dollar;
   }
 
   handleRemove(e){
