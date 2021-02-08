@@ -1,6 +1,6 @@
 <div class="container pt-5">
     <h2 class="text-center my-4">Todo Listing</h2>
-    <form class="example-form mb-1">
+    <form class="example-form mb-1 bg-light p-3 rounded shadow">
         <mat-form-field class="example-full-width">
             <mat-label>Add what todo</mat-label>
             <input matInput placeholder="Enter Todo" type="text" id="todo" name="todo" #todo>
@@ -8,7 +8,10 @@
 
         <mat-form-field class="example-full-width">
             <mat-label>Add Date</mat-label>
-            <input matInput placeholder="Enter date" type="date" id="date" name="date" #date>
+            <!-- <input matInput placeholder="Enter date" type="date" id="date" name="date" #date> -->
+  <input matInput [matDatepicker]="picker" id="date" name="date" #date>
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <!-- <mat-form-field appearance="fill">
             <mat-label>Choose a date</mat-label>
@@ -22,7 +25,7 @@
             <input matInput placeholder="Enter Time" type="time" id="time" name="time" #time>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="handleAddToList()">Add To List</button>
+        <button mat-flat-button color="basic" class="px-5" (click)="handleAddToList()">Add To List</button>
     </form>
 
     <div class="alert-info mt-5" *ngIf="!todoList.length">
@@ -43,10 +46,16 @@
                     <th scope="row">{{item.todo}}</th>
                     <td>{{item.date}}</td>
                     <td>{{item.time}}</td>
-                    <td><button class="mr-2" (click)="handleRemove(item.id)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
-                        <mat-icon>delete</mat-icon>
-                      </button>
-                        <button mat-flat-button color="default" (click)="handleIsDone(item.id)" *ngIf="item.isDone === false">Done</button>
+                    <td>
+                        <div class="d-flex justify-content-around">
+                            <span class="material-icons cursor-pointer text-success mr-2" (click)="handleIsDone(item.id)" *ngIf="item.isDone === false">
+                            done
+                            </span>
+
+                              <span class="material-icons cursor-pointer text-danger" (click)="handleRemove(item.id)" aria-label="Example icon button with a delete icon">
+                                delete
+                            </span>
+                        </div>
                     </td>
                 </tr>
                 <tr>

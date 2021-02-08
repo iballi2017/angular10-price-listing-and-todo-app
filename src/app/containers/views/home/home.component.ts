@@ -40,11 +40,11 @@ export class HomeComponent implements OnInit {
       price: parseInt(price)
     }    
     if(this.item.nativeElement.value != "" && this.price.nativeElement.value != ""){
-      this.priceListSvc.addToList(obj);
-    }
-    this.totalAmount = this.priceListSvc.handleTotalAmount();          
+      this.priceListSvc.addToList(obj);       
     this.item.nativeElement.value = ""
     this.price.nativeElement.value = ""
+    }
+    this.totalAmount = this.priceListSvc.handleTotalAmount();   
   }
 
 }

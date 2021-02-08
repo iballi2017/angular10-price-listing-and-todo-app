@@ -1,6 +1,6 @@
 <div class="container pt-5">
     <h2 class="text-center my-4">Price Listing</h2>
-    <form class="example-form mb-1">
+    <form class="example-form mb-1 bg-light p-3 rounded shadow">
         <mat-form-field class="example-full-width">
             <mat-label>Item</mat-label>
             <input matInput placeholder="Enter Item Name" type="text" id="textItem" name="textItem" #item>
@@ -10,7 +10,7 @@
             <input matInput placeholder="Enter Item price" type="number" id="testPrice" name="testPrice" #price>
         </mat-form-field>
 
-        <button mat-raised-button color="primary" (click)="handleAddToList()">Add To List</button>
+        <button mat-flat-button color="basic" class="px-5" (click)="handleAddToList()">Add To List</button>
     </form>
 
     <div class="alert-info mt-5" *ngIf="!dataSource.length">
@@ -29,9 +29,13 @@
                 <tr *ngFor="let item of dataSource">
                     <th scope="row">{{item.item}}</th>
                     <td>{{item.price}}</td>
-                    <td><button (click)="handleRemove(item.id)" mat-mini-fab color="warn" aria-label="Example icon button with a delete icon">
-                        <mat-icon>delete</mat-icon>
-                      </button></td>
+                    <td>
+                        <div class="d-flex justify-content-end">
+                              <span class="material-icons cursor-pointer text-danger" (click)="handleRemove(item.id)" aria-label="Example icon button with a delete icon">
+                                delete
+                            </span>
+                        </div>
+                    </td>
                 </tr>
             </tbody>
         </table>

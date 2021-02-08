@@ -11,15 +11,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatOptionModule } from '@angular/material/core';
 import {MatListModule} from '@angular/material/list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
   declarations: [],
   imports: [
-    CommonModule,MatToolbarModule,MatIconModule,MatButtonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSidenavModule,MatOptionModule,MatSelectModule,MatListModule,MatDatepickerModule
+    CommonModule,MatToolbarModule,MatIconModule,MatButtonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSidenavModule,MatOptionModule,MatSelectModule,MatListModule,MatDatepickerModule,MatNativeDateModule
   ],
   exports: [
-    MatToolbarModule,MatIconModule,MatButtonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSidenavModule,MatOptionModule,MatSelectModule,MatListModule,MatDatepickerModule
+    MatToolbarModule,MatIconModule,MatButtonModule,MatTableModule,MatFormFieldModule,MatInputModule,MatSidenavModule,MatOptionModule,MatSelectModule,MatListModule,MatDatepickerModule,MatNativeDateModule
   ]
 })
 export class MaterialModule { }

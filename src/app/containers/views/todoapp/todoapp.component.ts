@@ -32,10 +32,10 @@ export class TodoappComponent implements OnInit {
     }   
     if(obj.todo != "" && obj.date != "" && obj.time != ""){
       this._todoSvc.addTodo(obj);
+      this.todo.nativeElement.value =""
+      this.date.nativeElement.value =""
+      this.time.nativeElement.value =""
     } 
-    this.todo.nativeElement.value =""
-    this.date.nativeElement.value =""
-    this.time.nativeElement.value =""
   } 
   handleRemove(id){      
       this.todoList = this._todoSvc.removeTodo(id);
